@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Food Donation</title>
+</head>
+<body>
+    <h1 style="text-align: center; color: #333;">Edit Food Donation</h1>
+    <form method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+        {% csrf_token %}
+        <label for="restaurant_name" style="font-weight: bold; margin-bottom: 10px;">Restaurant Name:</label>
+        <input type="text" id="restaurant_name" name="restaurant_name" value="{{ donation.restaurant_name }}" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <label for="food_description" style="font-weight: bold; margin-bottom: 10px;">Food Description:</label>
+        <input type="text" id="food_description" name="food_description" value="{{ donation.food_description }}" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <label for="quantity" style="font-weight: bold; margin-bottom: 10px;">Quantity:</label>
+        <input type="text" id="quantity" name="quantity" value="{{ donation.quantity }}" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <label for="fulfilled_donation" style="font-weight: bold; margin-bottom: 10px;">Fulfilled Donation:</label>
+        <input type="checkbox" id="fulfilled_donation" name="fulfilled_donation" {% if donation.fulfilled %}checked{% endif %} style="margin-bottom: 15px;"><br>
+
+        <input type="submit" value="Save" style="background-color: #007BFF; color: #fff; border: none; border-radius: 3px; padding: 10px 20px; cursor: pointer; font-weight: bold;">
+    </form>
+</body>
+</html>
